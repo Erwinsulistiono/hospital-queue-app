@@ -1,0 +1,25 @@
+<div class="form-container">
+  <form (ngSubmit)="onSubmit()">
+    <div class="input-form">
+      <label for="name">Nama </label>
+      <input
+        type="text"
+        id="name"
+        placeholder="Name"
+        [(ngModel)]="name"
+        name="name"
+      />
+    </div>
+    <div class="input-form">
+      <label for="phone">No Telp </label>
+      <input
+        type="text"
+        id="phone"
+        placeholder="Phone"
+        [(ngModel)]="phone"
+        name="phone"
+      />
+    </div>
+    <button class="btn" type="submit">Submit</button>
+  </form>
+</div>

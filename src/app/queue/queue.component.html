@@ -1,0 +1,52 @@
+<div class="container">
+  <app-header></app-header>
+  <app-add-queue
+    (onAddQueue)="addQueue($event)"
+    nextQueue="{{ queue.length + 1 }}"
+  ></app-add-queue>
+  <table class="queue">
+    <thead>
+      <th [ngStyle]="{ width: '5px' }">Antrian</th>
+      <th>Nama</th>
+      <th>Nomor Telp</th>
+      <th>Status</th>
+      <th>Action</th>
+    </thead>
+    <tbody *ngFor="let data of queue">
+      <td>{{ data.queue }}</td>
+      <td>{{ data.name }}</td>
+      <td>{{ data.phone }}</td>
+      <td *ngIf="data.isFinished == false; else doneQueue">Belum Dipanggil</td>
+      <td *ngIf="data.isFinished == false; else deleteQueue">
+        <fa-icon
+          [ngStyle]="{ color: '#04AA6D' }"
+          (click)="onUpdate(data)"
+          [icon]="faCheck"
+        ></fa-icon>
+        <fa-icon
+          (click)="onPrint(data)"
+          [ngStyle]="{ color: '#898989' }"
+          [icon]="faPrint"
+        ></fa-icon>
+      </td>
+      <ng-template #deleteQueue>
+        <td>
+          <fa-icon
+            [ngStyle]="{ color: '#b93737' }"
+            (click)="onDelete(data)"
+            [icon]="faTimes"
+          ></fa-icon>
+          <fa-icon
+            (click)="onPrint(data)"
+            [ngStyle]="{ color: '#898989' }"
+            [icon]="faPrint"
+          ></fa-icon>
+        </td>
+      </ng-template>
+      <ng-template #doneQueue>
+        <td>Sudah Dipanggil</td>
+      </ng-template>
+    </tbody>
+  </table>
+</div>
+<app-print-queue [dataQueue]="printQueue"></app-print-queue>

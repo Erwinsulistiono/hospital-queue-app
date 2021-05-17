@@ -1,0 +1,62 @@
+.container {
+  max-width: 720px;
+  margin: 0 auto;
+  margin-top: 50px;
+  border-style: solid;
+  border-width: 1px;
+  box-shadow: 5px 5px #888888;
+  padding: 20px;
+}
+
+table {
+  list-style: none;
+  font-size: 18px;
+  background-color: #ffffff;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 10px;
+  border-top-style: solid;
+  border-left-style: solid;
+  border-right-style: solid;
+  border-width: 1px;
+  border-color: #e2e2e2;
+  text-align: center;
+}
+
+fa-icon {
+  margin: 0 6px;
+}
+
+fa-icon:hover {
+  cursor: pointer;
+}
+
+app-print-queue {
+  display: none;
+}
+
+@media print {
+  app-print-queue {
+    display: block;
+  }
+
+  .queue {
+    display: none;
+  }
+
+  app-header {
+    display: none;
+  }
+
+  app-add-queue {
+    display: none;
+  }
+
+  .container {
+    display: none;
+  }
+}

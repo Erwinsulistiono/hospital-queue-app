@@ -1,0 +1,26 @@
+<div class="ticket" *ngFor="let data of dataQueue">
+  <p class="centered">
+    Selamat Datang {{ data.name }}<br />Di Rumah Sakit foo-bar <br />Jl Tanah
+    Abang 5 No.89
+  </p>
+  <table>
+    <thead>
+      <tr>
+        <th class="description"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="description">Nomor Antrian Anda</td>
+      </tr>
+      <tr>
+        <td class="description centered">
+          <h1>{{ data.queue }}</h1>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <p class="centered">
+    Terimakasih atas Kepercayaan anda! <br />Semoga Lekas Sembuh
+  </p>
+</div>
